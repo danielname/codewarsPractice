@@ -26,3 +26,11 @@ function oddOrEven(array) {
 function check (a, x) {
     return a.indexOf(x) !== -1;
 }
+
+// We need a function find_next_power ( findNextPower in JavaScript, CoffeeScript and Haskell), that receives two arguments, a value val, and the exponent of the power, pow_, and outputs the value that we want to find.
+function findNextPower (val, pow) {
+    for (var i = val + 1; Number.isInteger(Math.pow(i,(1 / pow))) === false; i++);
+    return i;
+}
+/* the code seems to work except for big numbers. come back to this*/
+
