@@ -34,3 +34,7 @@ function findNextPower (val, pow) {
 }
 /* the code seems to work except for big numbers. come back to this*/
 
+// fix the code
+function multiply(a, b){
+    return a * b;
+}
