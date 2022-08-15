@@ -105,3 +105,26 @@ function longest(s1, s2) {
 function greet(name){
     return "Hello, " + name + " how are you doing today?";
 }
+
+//Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+function even_or_odd (integer) {
+    if (integer % 2 === 0) {
+        return "Even";
+    }
+    return "Odd";
+}
+
+//Implement a function which convert the given boolean value into its string representation.
+// Note: Only valid inputs will be given.
+function booleanToString(b){
+    if (b === true) {
+        return "true";
+    } else {
+        return "false";
+    }
+}
+/* function booleanToString(b) {
+    return b?"true":"false";
+    }
+ */
+
