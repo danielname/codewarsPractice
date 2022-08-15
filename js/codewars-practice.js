@@ -78,3 +78,15 @@ function highAndLow(numbers){
     })
     return numArray[numArray.length - 1] + " " + numArray[0];
 }
+
+//Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+// Note: a and b are not ordered!
+function getSum (a, b) {
+    let numArray = [a, b];
+    numArray.sort(function (a,b) {
+        return a-b;
+    })
+    let x = 0;
+    for (let i = numArray[0]; i < numArray[1]; x = x + i, i++);
+    return x; /*currently seems to be returning 0, test swapping the sort*/
+}
