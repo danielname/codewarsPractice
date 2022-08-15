@@ -128,3 +128,21 @@ function booleanToString(b){
     }
  */
 
+//In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". Your function receives one side of the DNA (string, except for Haskell); you need to return the other complementary side. DNA strand is never empty or there is no DNA at all (again, except for Haskell).
+function DNAStrand(dna){
+    let dnaArr = dna.split("");
+    let i = 0;
+    while (i < dnaArr.length) {
+        if (dnaArr[i] === "A") {
+            dnaArr.splice(i,1,"T");
+        } else if (dnaArr[i] === "T") {
+            dnaArr.splice(i,1,"A");
+        } else if (dnaArr[i] === "C") {
+            dnaArr.splice(i,1,"G");
+        } else {
+            dnaArr.splice(i,1,"C");
+        }
+        i++;
+    }
+    return dnaArr.join("")
+}
