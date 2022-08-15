@@ -91,3 +91,17 @@ function getSum (a, b) {
     console.log(numArray);
     return x;
 }
+
+// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+function longest(s1, s2) {
+    let str = s1 + s2;
+    let arr = str.split("");
+    arr.sort();
+    let arrStr = arr.join("");
+    return String.prototype.concat(...new Set(arrStr));
+}
+
+//Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+function greet(name){
+    return "Hello, " + name + " how are you doing today?";
+}
