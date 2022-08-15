@@ -69,3 +69,12 @@ function countPositivesSumNegatives(input) {
         return [];
     }
 }
+
+//In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+function highAndLow(numbers){
+    let numArray = numbers.split(" ");
+    numArray.sort(function(a,b){
+        return a-b;
+    })
+    return numArray[numArray.length - 1] + " " + numArray[0];
+}
