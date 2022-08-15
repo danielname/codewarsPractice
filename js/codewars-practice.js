@@ -43,3 +43,29 @@ function multiply(a, b){
 function hexToDec (string) {
     return parseInt(string, 16);
 }
+// const hexToDec = string => parseInt(string, 16);
+
+//Given an array of integers.
+// Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+// If the input is an empty array or is null, return an empty array.
+
+function countPositivesSumNegatives(input) {
+    if (input == null){
+        return [];
+    } else if (input.length > 0) {
+        let x = 0;
+        let y = 0;
+        let i = 0;
+        while (i < input.length) {
+            if (input[i] > 0) {
+                x++;
+            } else {
+                y = y + input[i];
+            }
+            i++;
+        }
+        return [x, y];
+    } else {
+        return [];
+    }
+}
