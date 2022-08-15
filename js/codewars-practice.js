@@ -87,6 +87,7 @@ function getSum (a, b) {
         return a-b;
     })
     let x = 0;
-    for (let i = numArray[0]; i < numArray[1]; x = x + i, i++);
-    return x; /*currently seems to be returning 0, test swapping the sort*/
+    for (let i = numArray[0]; i <= numArray[1]; x = x + i, i++);
+    console.log(numArray);
+    return x;
 }
