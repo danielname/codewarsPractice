@@ -146,3 +146,20 @@ function DNAStrand(dna){
     }
     return dnaArr.join("")
 }
+
+//Given an array of numbers and an index, return either the index of the smallest number that is larger than the element at the given index, or -1 if there is no such index ( or, where applicable, Nothing or a similarly empty value ).
+function leastLarger(a,i) {
+    let array = a;
+    let startingValue = array[i];
+    let sortedArray = array.sort(function (a, b) {
+        return a - b;
+    })
+    let newIndex = sortedArray.indexOf(startingValue) + 1;
+    console.log(newIndex);
+    if (newIndex <= sortedArray.length){
+    let valueSeek = sortedArray[newIndex];
+    return array.indexOf(valueSeek);
+    } else {
+        return -1;
+    }
+}
