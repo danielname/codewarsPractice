@@ -170,3 +170,12 @@ function binaryArrayToNumber(array){
     let biString = array.join('');
     return parseFloat(biString, 2);
 }
+
+function squareDigits(num){
+    let numString = String(num);
+    let numStringArray = numString.split("");
+    for (let i = 0; i < numStringArray.length; numStringArray.splice(i,1,numStringArray[i] ** 2) ** 2, i++);
+    let numStringArrayString = numStringArray.join("");
+    return parseInt(numStringArrayString);
+}//take a number, convert to string, convert to array,
+//square each number, convert to string, convert to number
