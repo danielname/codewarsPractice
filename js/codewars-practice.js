@@ -162,4 +162,11 @@ function leastLarger(a,i) {
     } else {
         return -1;
     }
+}// for some reason this function works in the console, but does not work on codewars
+
+
+//Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+function binaryArrayToNumber(array){
+    let biString = array.join('');
+    return parseFloat(biString, 2);
 }
