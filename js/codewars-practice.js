@@ -221,3 +221,11 @@ function roundToNext5(n){
 } // const roundToNext5 = n => Math.ceil(n/5)*5;
 
 
+// Write function which takes a string and make an acronym of it.
+function toAcronym(inp){
+    let inpArray = inp.split(" ");
+    inpArray.forEach((word,index)=>{
+    inpArray[index] = word.slice(0,1).toUpperCase();
+    })
+    return inpArray.join("");
+}
