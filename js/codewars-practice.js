@@ -204,3 +204,20 @@ function likeOrDislike (array) {
     }
     return x;
 }
+
+//reversing the letters in a string
+function solution(str){
+    let strArray = str.split("");
+    strArray = strArray.reverse();
+    return strArray.join("");
+}
+
+// hello world in arrow form
+const greet = () =>"hello world!";
+
+// Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+function roundToNext5(n){
+    return Math.ceil(n / 5) * 5;
+} // const roundToNext5 = n => Math.ceil(n/5)*5;
+
+
