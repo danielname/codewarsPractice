@@ -213,7 +213,7 @@ function solution(str){
 }
 
 // hello world in arrow form
-const greet = () =>"hello world!";
+// const greet = () =>"hello world!";
 
 // Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
 function roundToNext5(n){
@@ -229,3 +229,24 @@ function toAcronym(inp){
     })
     return inpArray.join("");
 }
+
+
+// function that checks if a number is divisible by 2 other numbers
+const isDivisible = (n, x, y) => n % x === 0 && n % y === 0;
+
+
+// Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+// The binary number returned should be a string.
+function addBinary(a,b) {
+    let array = [];
+    let sum = a + b;
+    for (let i = sum; i > 0; i = i / 2) {
+        if (i % 2 === 1) {
+            array.unshift("1");
+            i--;
+        } else {
+            array.unshift("0");
+        }}
+    return array.join("");
+}
+
