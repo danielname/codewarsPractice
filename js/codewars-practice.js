@@ -249,4 +249,26 @@ function addBinary(a,b) {
         }}
     return array.join("");
 }
+//of note is that one common solution is to use the .toString(#) method, where the # indicates the base of the numeric string from decimal. kindof like the opposite of parse.
 
+
+//Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+function toCamelCase(str){
+    if (str.indexOf("-") !== -1){
+        let strArrayHyphen = str.split("-");
+        for (let i = 0; i < strArrayHyphen.length; i++) {
+            strArrayHyphen[i].split("")[0].toUpprecase; //im not sure how to refer to array elements of arrays in arrays. same issue on line 265
+            strArrayHyphen[i].join("");
+        }
+        return strArrayHyphen.join("");
+    } else if (str.indexOf("_") !== -1){
+        let strArrayUnderscore = str.split("_");
+        for (let i = 0; i < strArrayUnderscore.length; i++) {
+            strArrayUnderscore[i].split("")[0].toUpprecase;
+            strArrayUnderscore[i].join("");
+        }
+        return strArrayUnderscore.join("");
+    } else {
+        return "";
+    }
+}
