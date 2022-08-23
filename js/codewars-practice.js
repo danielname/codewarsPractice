@@ -257,18 +257,37 @@ function toCamelCase(str){
     if (str.indexOf("-") !== -1){
         let strArrayHyphen = str.split("-");
         for (let i = 0; i < strArrayHyphen.length; i++) {
-            strArrayHyphen[i].split("")[0].toUpprecase; //im not sure how to refer to array elements of arrays in arrays. same issue on line 265
+            strArrayHyphen[i].split("");
+            strArrayHyphen[i][0].toUpperCase();
             strArrayHyphen[i].join("");
         }
         return strArrayHyphen.join("");
     } else if (str.indexOf("_") !== -1){
         let strArrayUnderscore = str.split("_");
         for (let i = 0; i < strArrayUnderscore.length; i++) {
-            strArrayUnderscore[i].split("")[0].toUpprecase;
+            strArrayUnderscore[i].split("")
+            strArrayUnderscore[i][0].toUpperCase();
             strArrayUnderscore[i].join("");
         }
         return strArrayUnderscore.join("");
     } else {
         return "";
+    }
+}
+
+//You will be given an array and a limit value. You must check that all values in the array are below or equal to the limit value. If they are, return true. Else, return false.
+// You can assume all values in the array are numbers.
+
+function smallEnough(a, limit){
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] > limit) {
+            return false;
+            break;
+        } else if (a[i] <= limit && i === a.length - 1) {
+            return true;
+            break;
+        } else {
+            continue;
+        }
     }
 }
