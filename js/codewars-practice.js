@@ -291,3 +291,18 @@ function smallEnough(a, limit){
         }
     }
 }
+
+//Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
+function scramble(str1, str2) {
+    let str2Array = str2.split("");
+    console.log(str2Array)
+    for (let i = 0; i < str2Array.length; i++) {
+        if (str1.indexOf(str2Array[i]) === -1) {
+            return false;
+        }
+        else {
+            continue;
+        }
+    }
+    return true;
+}
