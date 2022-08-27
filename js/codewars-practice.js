@@ -296,6 +296,7 @@ function smallEnough(a, limit){
 function scramble(str1, str2) {
     let str2Array = str2.split("");
     console.log(str2Array)
+
     for (let i = 0; i < str2Array.length; i++) {
         if (str1.indexOf(str2Array[i]) === -1) {
             return false;
@@ -305,4 +306,11 @@ function scramble(str1, str2) {
         }
     }
     return true;
+}// this function doesnt work because it doesnt take into account repeated letters.
+
+function abbrevName(name){
+    let array = name.split(" ");
+    array[0] = array[0].slice(0,1).toUpperCase();
+    array[1] = array[1].slice(0,1).toUpperCase();
+    return array.join(".");
 }
