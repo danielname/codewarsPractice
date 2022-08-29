@@ -314,3 +314,25 @@ function abbrevName(name){
     array[1] = array[1].slice(0,1).toUpperCase();
     return array.join(".");
 }
+
+// function maxMultiple(divisor, bound){
+//     if (bound % divisor === 0){
+//         return bound;
+//     } else {
+//         bound--;
+//         maxMultiple(divisor, bound)
+//     }
+//     if (bound % divisor === 0) {
+//         return bound;
+//     }
+//} // testing recursion. solving with a loop should be extremely easy, but I wanted to see if i could figure this out. i am missing something
+
+function maxMultiple (divisor, bound){
+    for (let i = bound; i > divisor; i--){
+        if (i % divisor === 0){
+            return i;
+        }
+    }
+}
+//most simple solution returns bound - (bound % divisor). makes sense, skips the entire looping process.
+
