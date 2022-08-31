@@ -336,3 +336,19 @@ function maxMultiple (divisor, bound){
 }
 //most simple solution returns bound - (bound % divisor). makes sense, skips the entire looping process.
 
+
+//Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side).
+function dirReduc(arr){
+    let array = arr;
+    for (let i = 0; i < array.length; i++) {
+        if ((array[i] === `NORTH` && array[i+1] === 'SOUTH') || (array[i] === `SOUTH` && array[i+1] === 'NORTH') || (array[i] === `EAST` && array[i+1] === 'WEST') || (array[i] === `WEST` && array[i+1] === 'EAST')) {
+            array.splice(i,2);
+            console.log(array);
+            i--;
+            i--;
+        } else {
+            continue;
+        }
+    }
+    return array;
+}
