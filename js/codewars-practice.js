@@ -352,3 +352,63 @@ function dirReduc(arr){
     }
     return array;
 }
+
+// Complete the function which get an input number n such that n >= 10 and n < 10000, then:
+// Sum all the digits of n.
+// Subtract the sum from n, and it is your new n.
+// If the new n is in the list below return the associated fruit, otherwise return back to task 1.
+function SubtractSum(n){
+    let nArray = String(n).split("");
+    let x = 0;
+    for (let i = 0; i < nArray.length; i++) {
+        x += parseInt(nArray[i]);
+    }
+    return n - x;
+}
+
+function fizzBuzz (number) {
+    if (number % 3 === 0 && number % 5 === 0) {
+        return "FizzBuzz";
+    } else if (number % 3 === 0) {
+        return "Fizz";
+    } else if (number % 5 === 0) {
+        return "Buzz";
+    } else {
+        return String(number);
+    }
+}
+
+// A perfect power is a classification of positive integers:
+//
+// In mathematics, a perfect power is a positive integer that can be expressed as an integer power of another positive integer. More formally, n is a perfect power if there exist natural numbers m > 1, and k > 1 such that mk = n.
+//
+// Your task is to check wheter a given integer is a perfect power. If it is a perfect power, return a pair m and k with mk = n as a proof. Otherwise return Nothing, Nil, null, NULL, None or your language's equivalent.
+const isPP = function(n){
+    for (let i = 2; i < ((n / 2) + 1); i++){
+        let number = n;
+        let counter = 1;
+        if (n % i === 0) {
+            for (let j = 1; number >= i; j++) {
+            number /= i;
+            if (Math.ceil(number) !== Math.floor(number)){
+                break;
+            } else if (number === 1) {
+                return [i, counter];
+            } else {
+                counter++;
+            }
+            }
+        } else {
+            continue;
+        }
+    }
+        return null;
+}
+
+//this is a more efficient way
+// function isPP(n) {
+//   for (var m = 2; m * m <= n; ++ m)
+//     for (var k = 2; Math.pow(m, k) <= n; ++ k)
+//       if (Math.pow(m, k) == n) return [m, k];
+//   return null;
+// }
