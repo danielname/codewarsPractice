@@ -486,3 +486,38 @@ function race(v1, v2, g) {
         return [Math.floor(t),Math.floor((t-Math.floor(t))*60),Math.floor((t*3600) % 60)];
     }
 }
+
+// sum of the multiples of 3 and 5
+function solution(number){
+    let x = 0;
+    for (let i = number; i >= 3; i--) {
+        if (i % 3 === 0 || i % 5 === 0){
+            x += i;
+        }
+    }
+    return x;
+}
+
+//Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+//count xs
+//count os
+
+//check ===
+//return true/false
+
+function XO(str) {
+    let x = 0;
+    let o = 0;
+    let strA = str.split(``);
+    for (let i = 0; i < strA.length; i++) {
+        if (strA[i] === `x` || strA[i] === `X`) {
+            x++;
+        } else  if (strA[i] === `o` || strA[i] === `O`) {
+            o++;
+        } else {
+            continue;
+        }
+    }
+    return x === o;
+}
