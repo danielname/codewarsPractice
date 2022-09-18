@@ -521,3 +521,10 @@ function XO(str) {
     }
     return x === o;
 }
+
+//The Stanton measure of an array is computed as follows: count the number of occurences for value 1 in the array. Let this count be n. The Stanton measure is the number of times that n appears in the array.
+// Write a function which takes an integer array and returns its Stanton measure.
+function stantonMeasure (array){
+    let n = array.filter(x => x === 1).length;
+    return array.filter(y => y === n).length;
+}
