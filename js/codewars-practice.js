@@ -566,7 +566,7 @@ function miniMaxSum(arr) {
     let accumMin = 0;
     let accumMax = 0;
     let sortedArray = arr.sort(function(a,b){
-        return b-a;
+        return a - b;
     })
     for (let i = 0; i < sortedArray.length; i++){
         if (i < 4){
@@ -575,6 +575,6 @@ function miniMaxSum(arr) {
             accumMax += sortedArray[i];
         }
     }
-    return (`${accumMin} ${accumMax}`)
+    console.log (`${accumMin} ${accumMax}`)
 }
 
