@@ -571,7 +571,8 @@ function miniMaxSum(arr) {
     for (let i = 0; i < sortedArray.length; i++){
         if (i < 4){
             accumMin += sortedArray[i];
-        } else if (i >= sortedArray.length - 3){
+        }
+        if (i >= sortedArray.length - 4){
             accumMax += sortedArray[i];
         }
     }
