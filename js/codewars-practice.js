@@ -561,3 +561,20 @@ function one_two_three() {
 }
 
 // Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+
+function miniMaxSum(arr) {
+    let accumMin = 0;
+    let accumMax = 0;
+    let sortedArray = arr.sort(function(a,b){
+        return b-a;
+    })
+    for (let i = 0; i < sortedArray.length; i++){
+        if (i < 4){
+            accumMin += sortedArray[i];
+        } else if (i >= sortedArray.length - 3){
+            accumMax += sortedArray[i];
+        }
+    }
+    return (`${accumMin} ${accumMax}`)
+}
+
