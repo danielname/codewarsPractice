@@ -592,15 +592,14 @@ function timeConversion(s) {
 
 
 function min(arr){
-    let trackingArray = arr;
     if (arr.length === 1){
         return arr[0];
     } else {
         if (arr[arr.length - 1] > arr[arr.length - 2]){
-            trackingArray = trackingArray.pop();
+            arr.pop();
         } else{
-            trackingArray = trackingArray.splice(arr.length-2, arr.length-1);
+            arr.splice(arr.length-2, 1);
         }
-        return min(trackingArray);
+        return min(arr);
     }
 }
