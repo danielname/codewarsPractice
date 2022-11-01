@@ -589,3 +589,18 @@ function timeConversion(s) {
 
     return time;
 }
+
+
+function min(arr){
+    let trackingArray = arr;
+    if (arr.length === 1){
+        return arr[0];
+    } else {
+        if (arr[arr.length - 1] > arr[arr.length - 2]){
+            trackingArray = trackingArray.pop();
+        } else{
+            trackingArray = trackingArray.splice(arr.length-2, arr.length-1);
+        }
+        return min(trackingArray);
+    }
+}
