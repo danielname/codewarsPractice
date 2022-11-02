@@ -611,3 +611,21 @@ function min(arr){
     }
 }
 
+
+//Function Description
+//
+// Complete the breakingRecords function in the editor below.
+//
+// breakingRecords has the following parameter(s):
+//
+// int scores[n]: points scored per game
+// Returns
+//
+// int[2]: An array with the numbers of times she broke her records. Index  is for breaking most points records, and index  is for breaking least points records.
+
+function breakingRecords(scores) {
+    return [Math.max(scores),Math.min(scores)];
+}
+
+//3step
+const threeStep = n => (n**2)/2-(n/2)+1;
