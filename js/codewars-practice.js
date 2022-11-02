@@ -585,12 +585,12 @@ function miniMaxSum(arr) {
 // - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
 
 function timeConversion(s) {
-    let time = s.slice(0,7);
-    if (parseInt(time.slice(0,2)) > 12 && s.indexOf("A") !== -1) {
+    let time = s.slice(0,8);
+    if (parseInt(time.slice(0,2)) < 12 && s.indexOf("A") !== -1) {
         return time;
     } else if (parseInt(time.slice(0,2)) === 12 && s.indexOf("A") === -1) {
         return time;
-    } else if (parseInt(time.slice(0,2)) > 12 && s.indexOf("A") === -1){
+    } else if (parseInt(time.slice(0,2)) < 12 && s.indexOf("A") === -1){
         return (parseInt(time.slice(0,2)) + 12) + time.slice(2);
     } else {
         return `00${time.slice(2)}`;
