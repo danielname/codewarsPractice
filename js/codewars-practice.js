@@ -586,8 +586,15 @@ function miniMaxSum(arr) {
 
 function timeConversion(s) {
     let time = s.slice(0,7);
-
-    return time;
+    if (parseInt(time.slice(0,2)) > 12 && s.indexOf("A") !== -1) {
+        return time;
+    } else if (parseInt(time.slice(0,2)) === 12 && s.indexOf("A") === -1) {
+        return time;
+    } else if (parseInt(time.slice(0,2)) > 12 && s.indexOf("A") === -1){
+        return (parseInt(time.slice(0,2)) + 12) + time.slice(2);
+    } else {
+        return `00${time.slice(2)}`;
+    }
 }
 
 
@@ -603,3 +610,4 @@ function min(arr){
         return min(arr);
     }
 }
+
