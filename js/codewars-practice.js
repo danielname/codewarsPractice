@@ -622,9 +622,23 @@ function min(arr){
 // Returns
 //
 // int[2]: An array with the numbers of times she broke her records. Index  is for breaking most points records, and index  is for breaking least points records.
-
+//LOOKING FOR THE NUMBER OF TIMES, NOT THE HIGHEST AND LOWEST NUMBERS!!!!!!!!!
 function breakingRecords(scores) {
-    return [Math.max(scores),Math.min(scores)];
+    let scoresArray = scores;
+    let mincounter = 0;
+    let maxcounter = 0;
+    let minScore = scoresArray[0];
+    let maxScore = scoresArray[0];
+    for (let i = 1; i < scoresArray.length; i++){
+        if (scoresArray[i] > maxScore){
+            maxScore = scoresArray[i];
+            maxcounter++;
+        } else if (scoresArray[i] < minScore){
+            minScore = scoresArray[i];
+            mincounter++;
+        }
+    }
+    return [maxcounter, mincounter];
 }
 
 //3step
