@@ -623,6 +623,7 @@ function min(arr){
 //
 // int[2]: An array with the numbers of times she broke her records. Index  is for breaking most points records, and index  is for breaking least points records.
 //LOOKING FOR THE NUMBER OF TIMES, NOT THE HIGHEST AND LOWEST NUMBERS!!!!!!!!!
+// Input is an array with scores
 function breakingRecords(scores) {
     let scoresArray = scores;
     let mincounter = 0;
@@ -643,3 +644,4 @@ function breakingRecords(scores) {
 
 //3step
 const threeStep = n => (n**2)/2-(n/2)+1;
+
