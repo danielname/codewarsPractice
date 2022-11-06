@@ -661,8 +661,21 @@ const threeStep = n => (n**2)/2-(n/2)+1;
 function processData(input) {
     let inputArray = input.split(';');
     if (inputArray[0].toLowerCase() === 's'){
-        return inputArray[3].split('').join(' ')
+        for (let i = 0; i < inputArray[2].length; i++){
+            if (inputArray[2].charAt(i) === inputArray[2].charAt(i).toUpperCase())
+                inputArray[2].splice(i-1, 0, ' ');
+                i++;
+        }
+        return inputArray[2].toLowerCase();
     } else {
-
+        if (inputArray[1].toLowerCase() === "m" || inputArray[1].toLowerCase() === "v"){
+            let words = inputArray[2];
+            let wordsArray = words.split(' ');
+            let firstWord = wordsArray.unshift();
+            wordsArray = dnUtils.string.capitalizeName(wordsArray.unshift().join(' '));
+            return `${firstWord} ${wordsArray}`.split(' ').join('');
+        } else {
+            return  dnUtils.string.capitalizeName(inputArray[2]).split(' ').join('');
+        }
     }
 }
