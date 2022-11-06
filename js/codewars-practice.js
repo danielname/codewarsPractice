@@ -659,5 +659,10 @@ const threeStep = n => (n**2)/2-(n/2)+1;
 // For each input line, your program should print either the space-delimited list of words (in the case of a split operation) or the appropriate camel case string (in the case of a combine operation).
 
 function processData(input) {
-    //Enter your code here
+    let inputArray = input.split(';');
+    if (inputArray[0].toLowerCase() === 's'){
+        return inputArray[3].split('').join(' ')
+    } else {
+
+    }
 }
