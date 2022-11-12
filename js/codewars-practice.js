@@ -206,11 +206,11 @@ function likeOrDislike (array) {
 }
 
 //reversing the letters in a string
-function solution(str){
-    let strArray = str.split("");
-    strArray = strArray.reverse();
-    return strArray.join("");
-}
+// function solution(str){
+//     let strArray = str.split("");
+//     strArray = strArray.reverse();
+//     return strArray.join("");
+// }
 
 // hello world in arrow form
 // const greet = () =>"hello world!";
@@ -678,4 +678,15 @@ function processData(input) {
             return  dnUtils.string.capitalizeName(inputArray[2]).split(' ').join('');
         }
     }
+}
+
+
+//The cat can jump up to 3 shelves at the same time: from shelf 1 to shelf 2 or 4 (the cat cannot climb on the shelf directly above its head), according to the illustration:
+//Input
+// Start and finish shelf numbers (always positive integers, finish no smaller than start)
+//
+// Task
+// Find the minimum number of jumps to go from start to finish
+function solution(start, finish) {
+    //Mew
 }
