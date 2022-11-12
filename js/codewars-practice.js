@@ -488,15 +488,15 @@ function race(v1, v2, g) {
 }
 
 // sum of the multiples of 3 and 5
-function solution(number){
-    let x = 0;
-    for (let i = number; i >= 3; i--) {
-        if (i % 3 === 0 || i % 5 === 0){
-            x += i;
-        }
-    }
-    return x;
-}
+// function solution(number){
+//     let x = 0;
+//     for (let i = number; i >= 3; i--) {
+//         if (i % 3 === 0 || i % 5 === 0){
+//             x += i;
+//         }
+//     }
+//     return x;
+// }
 
 //Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
 
@@ -688,5 +688,11 @@ function processData(input) {
 // Task
 // Find the minimum number of jumps to go from start to finish
 function solution(start, finish) {
-    //Mew
+    if((finish - start) % 3 === 2){
+        return Math.floor((finish - start) / 3) + 2;
+    } else if ((finish - start) % 3 === 0){
+        return (finish - start) / 3;
+    } else {
+        return Math.floor((finish - start) / 3) + 1;
+    }
 }
