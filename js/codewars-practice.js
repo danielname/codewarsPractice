@@ -383,35 +383,35 @@ function fizzBuzz (number) {
 // In mathematics, a perfect power is a positive integer that can be expressed as an integer power of another positive integer. More formally, n is a perfect power if there exist natural numbers m > 1, and k > 1 such that mk = n.
 //
 // Your task is to check wheter a given integer is a perfect power. If it is a perfect power, return a pair m and k with mk = n as a proof. Otherwise return Nothing, Nil, null, NULL, None or your language's equivalent.
-const isPP = function(n){
-    for (let i = 2; i < ((n / 2) + 1); i++){
-        let number = n;
-        let counter = 1;
-        if (n % i === 0) {
-            for (let j = 1; number >= i; j++) {
-            number /= i;
-            if (Math.ceil(number) !== Math.floor(number)){
-                break;
-            } else if (number === 1) {
-                return [i, counter];
-            } else {
-                counter++;
-            }
-            }
-        } else {
-            continue;
-        }
-    }
-        return null;
-}
+// const isPP = function(n){
+//     for (let i = 2; i < ((n / 2) + 1); i++){
+//         let number = n;
+//         let counter = 1;
+//         if (n % i === 0) {
+//             for (let j = 1; number >= i; j++) {
+//             number /= i;
+//             if (Math.ceil(number) !== Math.floor(number)){
+//                 break;
+//             } else if (number === 1) {
+//                 return [i, counter];
+//             } else {
+//                 counter++;
+//             }
+//             }
+//         } else {
+//             continue;
+//         }
+//     }
+//         return null;
+// }
 
 //this is a more efficient way
-// function isPP(n) {
-//   for (var m = 2; m * m <= n; ++ m)
-//     for (var k = 2; Math.pow(m, k) <= n; ++ k)
-//       if (Math.pow(m, k) == n) return [m, k];
-//   return null;
-// }
+function isPP(n) {
+  for (var m = 2; m * m <= n; ++ m)
+    for (var k = 2; Math.pow(m, k) <= n; ++ k)
+      if (Math.pow(m, k) == n) return [m, k];
+  return null;
+}
 
 
 //Imagine you are in a universe where you can just perform the following arithematic operations. Addition(+), Subtraction(-), Multiplication(*), Division(/). You are given given a postfix expression. Postfix expression is where operands come after operator. Each operator and operand are seperated by a space. You need to evaluate the expression.
@@ -695,4 +695,18 @@ function solution(start, finish) {
     } else {
         return Math.floor((finish - start) / 3) + 1;
     }
+}
+
+
+// Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase.
+function toAlternatingCase (string) {
+    let stringArray = string.split('');
+    for (let i = 0; i < stringArray.length; i++){
+        if (stringArray[i].toLowerCase() !== stringArray[i]){
+            stringArray[i] = stringArray[i].toLowerCase();
+        } else {
+            stringArray[i] = stringArray[i].toUpperCase();
+        }
+    }
+    return stringArray.join('');
 }
