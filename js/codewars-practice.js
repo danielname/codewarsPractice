@@ -712,12 +712,9 @@ function toAlternatingCase (string) {
 }
 
 // Given an array of 3 non-negative integers a, b and c, determine if they form a pythagorean triple.
-function isPythagoreanTriple(integers) {
-    integers.sort(function (a,b){
+function isPythagoreanTriple(threeNumArray) {
+    threeNumArray.sort(function (a,b){
         return a - b;
     })
-    let a = integers[0];
-    let b = integers[1];
-    let c = integers[2];
-    return a ** 2 + b ** 2 === c ** 2;
+    return threeNumArray[0] ** 2 + threeNumArray[1] ** 2 === threeNumArray[2] ** 2;
 }

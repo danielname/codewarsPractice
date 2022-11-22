@@ -21,6 +21,18 @@ const dnUtils = {
         // the following checks if the argument is an even number
         isEven (number) {
             return number % 2 === 0;
+        },
+        // the foollowing checks if a number is divisible by 2 other numbers
+        isDivisible (n, x, y) {
+            return n % x === 0 && n % y === 0;
+        },
+        // the following checks if the number is a perfect power. If so, it returns [a,b] where a**b = the number
+        // else returns false ?? need to figure out the best thing to return
+        isPerfectPower (n){
+            for (let m = 2; m * m <= n; ++ m)
+                for (let k = 2; m ** k <= n; ++ k)
+                    if (m ** k === n) return [m, k];
+            return false;
         }
     },
     geometry: {
@@ -28,6 +40,13 @@ const dnUtils = {
         circumference (radius) {
             const pi = Math.PI;
             return 2 * pi * radius;
+        },
+        // the following takes an array of 3 numbers and returns whether or not they are a pythagorean triple
+        isPythagoreanTriple(threeNumArray) {
+            threeNumArray.sort(function (a,b){
+                return a - b;
+            })
+            return threeNumArray[0] ** 2 + threeNumArray[1] ** 2 === threeNumArray[2] ** 2;
         }
     },
     conversion: {
@@ -39,17 +58,30 @@ const dnUtils = {
         kilometerToMile(kilometer){
             return distance * 0.6213;
         },
+        // the following takes gallons and returns liters
         gallonToLiter (gallons) {
-            // the following takes gallons and returns liters
             return gallons * 3.78541
         },
+        // the following takes liters and returns gallons
         literToGallon(liters){
-            // the following takes liters and returns gallons
             return liters * 0.2641
         },
+        // the following takes celsius and returns fahrenheit
         celsiusToFahrenheit (celsius) {
-            // the following takes celsius and returns fahrenheit
             return (celsius * (9 / 5)) + 32
+        },
+        // the following converts from 12 hour clock to 24 hour clock
+        timeConversion(s) {
+            let time = s.slice(0,8);
+            if (parseInt(time.slice(0,2)) < 12 && s.indexOf("A") !== -1) {
+                return time;
+            } else if (parseInt(time.slice(0,2)) === 12 && s.indexOf("A") === -1) {
+                return time;
+            } else if (parseInt(time.slice(0,2)) < 12 && s.indexOf("A") === -1){
+                return (parseInt(time.slice(0,2)) + 12) + time.slice(2);
+            } else {
+                return `00${time.slice(2)}`;
+            }
         }
     },
     string: {
@@ -62,6 +94,32 @@ const dnUtils = {
                 }
             }
             return stringArray.join('');
+        },
+        // the following function reverses the characters of a string
+        reverse(string) {
+            let strArray = str.split("");
+            strArray = strArray.reverse();
+            return strArray.join("");
+        },
+        // the following swaps upper and lower case of a string
+        toAlternatingCase (string) {
+            let stringArray = string.split('');
+            for (let i = 0; i < stringArray.length; i++){
+                if (stringArray[i].toLowerCase() !== stringArray[i]){
+                    stringArray[i] = stringArray[i].toLowerCase();
+                } else {
+                    stringArray[i] = stringArray[i].toUpperCase();
+                }
+            }
+            return stringArray.join('');
+        },
+        // the following takes a string and makes an acronym
+        toAcronym(string){
+            let inpArray = string.split(" ");
+            inpArray.forEach((word,index)=>{
+                inpArray[index] = word.slice(0,1).toUpperCase();
+            })
+            return inpArray.join("");
         }
     },
     array: {
@@ -79,6 +137,14 @@ const dnUtils = {
                 return b[1] - a[1];
             });
             return arraySorted[0][0];
+        },
+        // converts every item in an array into a string
+        stringItems(array){
+            let stringArray = array;
+            for (let i = 0; i < array.length; i++){
+                stringArray[i] = `${array[i]}`;
+            }
+            return stringArray;
         }
     }
 }
