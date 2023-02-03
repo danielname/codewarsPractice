@@ -658,24 +658,53 @@ const threeStep = n => (n**2)/2-(n/2)+1;
 //
 // For each input line, your program should print either the space-delimited list of words (in the case of a split operation) or the appropriate camel case string (in the case of a combine operation).
 
-function processData(input) {
-    let inputArray = input.split(';');
-    if (inputArray[0].toLowerCase() === 's'){
-        for (let i = 0; i < inputArray[2].length; i++){
-            if (inputArray[2].charAt(i) === inputArray[2].charAt(i).toUpperCase())
-                inputArray[2].splice(i-1, 0, ' ');
-                i++;
+function processData(input){
+    let inputArray = input.split(";");
+    for (let i = 0; i < Math.floor(inputArray.length / 2); i++) {
+        const inputObject = {
+            operation: inputArray[i*2],
+            type: inputArray[(i*2)+1],
+            content: inputArray[(i*2)+2]
         }
-        return inputArray[2].toLowerCase();
-    } else {
-        if (inputArray[1].toLowerCase() === "m" || inputArray[1].toLowerCase() === "v"){
-            let words = inputArray[2];
-            let wordsArray = words.split(' ');
-            let firstWord = wordsArray.unshift();
-            wordsArray = dnUtils.string.capitalizeName(wordsArray.unshift().join(' '));
-            return `${firstWord} ${wordsArray}`.split(' ').join('');
+        let contentArray = inputObject.content.split("");
+        if (i > 0) {
+            inputObject.operation.split("");
+            inputObject.operation = inputObject.operation[inputObject.operation.length -1];
+        }
+        if (i + 1 !== Math.floor(inputArray.length / 2)) {
+            contentArray.pop();
+            contentArray.pop();
+        }
+        if (inputObject.operation === "S") {
+            if (inputObject.type === "M") {
+                contentArray.pop();
+                contentArray.pop();
+            }
+            for (let j = 0; j < contentArray.length; j++) {
+                if (contentArray[j] !== contentArray[j].toLowerCase()) {
+                    contentArray[j] = contentArray[j].toLowerCase();
+                    contentArray.splice(j, 0, ' ');
+                }
+            }
+            if (contentArray[0] === " ") {
+                contentArray.shift();
+            }
+            console.log(contentArray.join(''));
         } else {
-            return  dnUtils.string.capitalizeName(inputArray[2]).split(' ').join('');
+            for (let j = 0; j < contentArray.length; j++) {
+                if (contentArray[j] === " ") {
+                    contentArray[j + 1] = contentArray[j + 1].toUpperCase();
+                    contentArray.splice(j, 1);
+                }
+            }
+            if (inputObject.type === "M") {
+                console.log(`${contentArray.join("")}()`)
+            } else if (inputObject.type === "C") {
+                contentArray[0] = contentArray[0].toUpperCase();
+                console.log(contentArray.join(""))
+            } else {
+                console.log(contentArray.join(""));
+            }
         }
     }
 }
